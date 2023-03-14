@@ -1,7 +1,7 @@
-const Sequelize = require('sequelize');
-const db = require('./db');
+import * as Sequelize from "sequelize";
+import db from '../db';
 
-const User = db.define('users', {
+const UserSchema = db.define('users', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -18,4 +18,4 @@ const User = db.define('users', {
     }
 });
 
-module.exports = User;
+export default UserSchema;

@@ -1,4 +1,4 @@
-const Sequelize = require("sequelize")
+import { Sequelize } from "sequelize";
 
 const sequelize = new Sequelize('guru', 'root', '!!Caio123456', {
     host: 'localhost',
@@ -7,4 +7,4 @@ const sequelize = new Sequelize('guru', 'root', '!!Caio123456', {
 
 sequelize.authenticate()
 
-module.exports = sequelize;
+export default sequelize;
