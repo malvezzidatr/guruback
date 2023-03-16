@@ -1,8 +1,8 @@
-import express from 'express';
-import { UsersRouter } from './routes/UserRouter.routes';
 import cors from 'cors';
-import dotenv from 'dotenv'
-dotenv.config()
+import express from 'express';
+import { getAuth } from 'firebase/auth';
+import { AuthRouter } from './routes/AuthRouter.routes';
+
 
 const app = express();
 app.use(express.json())
@@ -12,5 +12,6 @@ app.listen('3030', () => {
     console.log('conectado')
 })
 
-app.use('/users', UsersRouter)
+app.use('/auth', AuthRouter)
 
+export const auth = getAuth();
