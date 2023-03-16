@@ -1,10 +1,10 @@
-import UsersController from "../controllers/UserController";
+import { UsersController } from "../controllers/UserController";
 import express from 'express';
 
 const app = express()
-const usersController = new UsersController();
+const userController = new UsersController();
 
-app.get('/', usersController.listAllUsers)
-app.post('/register', usersController.createUser)
+app.get('/', (req, res) => userController.listAllUsers(req, res))
+app.post('/register', (req, res) => userController.createUser(req, res))
 
 export const UsersRouter = app;

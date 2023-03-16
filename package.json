@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "tsx src/server.ts",
-    "start:dev": "tsx watch src/server.ts",
+    "start:dev": "tsx watch src2/server.ts",
     "build": "tsup src/server.ts",
     "test": "vitest"
   },

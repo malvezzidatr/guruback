@@ -1,23 +1,30 @@
+import { UserRepository } from "../repository/UserRepository";
 import UserSchema from "../schemas/UserSchema";
 
 export class UserModel {
+    private repository;
+    teste
+    constructor() {
+        this.repository = new UserRepository()
+        this.teste = 'ola'
+    }
+
     async listAllUsers() {
-        return await UserSchema.findAll({
-            attributes: ['email', 'name']
-        })
+        return this.repository.listAllUsers()
+        
     }
 
     async createUser(
         name: string,
         email: string
-    ): Promise<void> {
+    ) {
         if (!name || !email) {
             return Promise.reject({
                 code: 500,
                 message: 'Name or email not found.'
             })
         }
-        
-        return await UserSchema.create({ name, email });
+
+        return this.repository.createUser(name, email)
     }
 }
