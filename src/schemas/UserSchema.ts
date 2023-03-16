@@ -1,5 +1,5 @@
 import * as Sequelize from "sequelize";
-import db from '../db';
+import db from '../database/db';
 
 const UserSchema = db.define('users', {
     id: {
