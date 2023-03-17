@@ -10,7 +10,7 @@ interface INewUser {
 
 export class AuthRepository {
     async createFirebaseUser({ auth, email, password }: INewUser) {
-        createUserWithEmailAndPassword(auth, email, password)
+        return createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user.refreshToken;
                 return user
@@ -24,8 +24,10 @@ export class AuthRepository {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(errorMessage)
-                return error
+                return {
+                    errorCode,
+                    errorMessage
+                }
                 // ..
             }) 
     }
