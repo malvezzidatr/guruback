@@ -12,6 +12,9 @@ app.listen('3030', () => {
     console.log('conectado')
 })
 
+app.get('/', (req, res) => {
+    res.send({msg: 'teste'})
+})
 app.use('/auth', AuthRouter)
 
 export const auth = getAuth();

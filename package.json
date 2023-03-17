@@ -6,7 +6,7 @@
   "scripts": {
     "start": "tsx src/server.ts",
     "start:dev": "tsx watch src/server.ts",
-    "build": "tsup src/server.ts",
+    "build": "tsup src/",
     "test": "vitest"
   },
   "repository": {
