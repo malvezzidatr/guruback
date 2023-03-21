@@ -1,6 +1,7 @@
 import { Auth, createUserWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { firestoreDB } from "../database/firestoredb";
+import { encryptPassword } from "../middlewares/encrypt";
 
 interface INewUser {
     auth: Auth;
@@ -16,9 +17,10 @@ export class AuthRepository {
                 return user
             })
             .then(async () => {
+                const hashPassword = await encryptPassword(password)
                 await addDoc(collection(firestoreDB, 'users'), {
                     email,
-                    password
+                    hashPassword
                 })
             })
             .catch((error) => {

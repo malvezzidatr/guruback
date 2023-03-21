@@ -12,7 +12,6 @@ app.listen('4000', () => {
     console.log('conectado')
 })
 
-
 app.use('/auth', AuthRouter)
 
 export const auth = getAuth();
